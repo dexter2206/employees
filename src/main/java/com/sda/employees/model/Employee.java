@@ -20,10 +20,6 @@ public class Employee {
         this.gender = gender;
     }
 
-    public Employee(String firstName, String lastName, Date birthDate, Date hireDate, Gender gender) {
-        this(null, firstName, lastName, birthDate, hireDate, gender);
-    }
-
     public int getId() {
         return id;
     }
