@@ -74,6 +74,6 @@ public class Employee {
 
     @Override
     public String toString() {
-        return String.format("{0} {1}", this.firstName, this.lastName);
+        return String.format("%s %s", this.firstName, this.lastName);
     }
 }
