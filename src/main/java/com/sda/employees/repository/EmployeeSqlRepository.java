@@ -11,9 +11,29 @@ import java.util.List;
 public class EmployeeSqlRepository implements EmployeeRepository{
 
     private DataSource ds;
-
+    private final String insertStatement = "INSERT INTO employees(emp_no, birth_date, first_name, last_name, gender, hire_date) " +
+            "VALUES(?, ?, ?, ?, ?, ?)";
     public EmployeeSqlRepository(DataSource ds) {
         this.ds = ds;
+    }
+
+    public void add(Employee newEmployee) {
+        try(Connection conn = ds.getConnection(); PreparedStatement insert = conn.prepareStatement(insertStatement)) {
+            insert.setInt(1, newEmployee.getId());
+            insert.setDate(2, newEmployee.getBirthDate());
+            insert.setString(3, newEmployee.getFirstName());
+            insert.setString(4, newEmployee.getLastName());
+            if(newEmployee.getGender() == Gender.FEMALE) {
+                insert.setString(5, "F");
+            } else {
+                insert.setString(5, "M");
+            }
+            insert.setDate(6, newEmployee.getHireDate());
+            insert.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("SQL error has occurred.");
+        }
     }
 
     public List<Employee> findAll() {
