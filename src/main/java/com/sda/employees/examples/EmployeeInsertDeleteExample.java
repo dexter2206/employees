@@ -22,7 +22,7 @@ public class EmployeeInsertDeleteExample {
                 insert.setString(3, "Konrad");
                 insert.setString(4, "Jałowiecki");
                 insert.setString(5, "M");
-                Integer empNo = null;
+
                 if(insert.executeUpdate() == 0) {
                     System.out.println("Failed to add a record.");
                     insert.close();
