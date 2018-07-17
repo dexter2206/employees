@@ -14,8 +14,8 @@ public class InsertDept {
     public static void main(String[] args) {
         try(Connection conn = ConnectionFactory.getConnection();
             PreparedStatement stmt = conn.prepareStatement(insert)) {
-            stmt.setString(1, "d011");
-            stmt.setString(2, "Cleaning Service");
+            stmt.setString(1, "d013");
+            stmt.setString(2, "Security");
             int rows_affected = stmt.executeUpdate();
             if(rows_affected == 1) {
                 System.out.println("Inserted successfuly");
