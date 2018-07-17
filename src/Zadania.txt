@@ -1,0 +1,5 @@
+1. Utworzyć DTO dla encji Employee
+2. Utworzyć Repozytorium dla encji Employee
+3. Utworzyć przykładowe specyfikacje dla Employee:
+   3. a) utworzyć speyfickację umożliwiającą znalezienie pracownika po nazwisku
+   3. b) ... zatrudnionego po określonej dacie
